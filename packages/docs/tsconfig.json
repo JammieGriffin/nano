@@ -10,11 +10,14 @@
     "strict": true,
     "noImplicitAny": false,
     "skipLibCheck": true,
-    "lib": ["WebWorker"],
+    "lib": [
+      "WebWorker",
+      "dom"
+    ],
     "paths": {
       "~/*": ["./.vitepress/vp/*"]
     },
-    "types": ["../typings/components"],
+    "types": ["./typings"],
     "jsx": "preserve"
   },
   "include": ["**/*", ".vitepress/**/*"],

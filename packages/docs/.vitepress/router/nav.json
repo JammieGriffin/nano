@@ -1,17 +1,17 @@
 [
   {
     "text": "Blog",
-    "link": "/blog",
-    "activeMatch": "/blog/"
+    "link": "/blog/list",
+    "activeMatch": "/blog"
   },
   {
     "text": "组件",
-    "link": "/component",
+    "link": "/component/list",
     "activeMatch": "/component/"
   },
   {
     "text": "组合式函数",
-    "link": "/composable",
+    "link": "/composable/list",
     "activeMatch": "/composable/"
   }
 ]

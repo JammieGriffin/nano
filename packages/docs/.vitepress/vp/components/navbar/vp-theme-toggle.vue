@@ -5,7 +5,7 @@ import CommonThemeToggle from '../common/vp-theme-toggle.vue'
 
 <template>
   <div class="theme-toggle-content">
-    <CommonThemeToggle aria-label="切换主题模式" :aria-checked="isDark" />
+    <CommonThemeToggle aria-label="切换主题" :aria-checked="isDark" />
   </div>
 </template>
 

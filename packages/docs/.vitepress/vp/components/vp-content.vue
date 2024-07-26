@@ -23,9 +23,9 @@ import VPDocContent from './vp-doc-content.vue'
 import VPNotFound from './vp-not-found.vue'
 import VPFooter from './globals/vp-footer.vue'
 
-const { frontmatter } = useData()
+const { frontmatter,page } = useData()
 const route = useRoute()
-const isNotFound = computed(() => route.component === VPNotFound)
+const isNotFound = computed(() => page.value.isNotFound)
 const isHeroPost = computed(() => frontmatter.value.page === true)
 const { hasSidebar } = useSidebar()
 

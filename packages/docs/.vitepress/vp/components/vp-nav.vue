@@ -1,12 +1,12 @@
 <template>
   <header :class="{ navbar: true, 'has-sidebar': hasSidebar }">
     <VpNavbar :smaller-than-md="isSmallerThanMd" @toggle="toggleMdBreakpointState" />
-    <VpNavMd />
+    <VpMobileNav :smaller-than-md="isSmallerThanMd" class="full-screen" />
   </header>
 </template>
 <script setup lang="ts">
 import VpNavbar from '~/components/vp-navbar.vue'
-import VpNavMd from '~/components/vp-nav-md.vue'
+import VpMobileNav from '~/components/vp-mobile-nav.vue'
 import { useSidebar } from '~/composable/sidebar'
 import { useMd } from '~/composable/break-point'
 import { useToggleWidgets } from '~/composable/toggle-wedgets'

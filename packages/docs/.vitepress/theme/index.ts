@@ -6,13 +6,10 @@ import './style.css'
 import "virtual:uno.css"
 
 import VPApp, { globals } from "../vp";
-// @ts-ignore
-import VpNotFound from "~/components/vp-not-found.vue";
 
 export default {
   extends: DefaultTheme,
   Layout: VPApp,
-  NotFound: VpNotFound,
   enhanceApp({ app }) {
     // ...
     globals.forEach(([name, Comp]) => {

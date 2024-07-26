@@ -1,6 +1,8 @@
 <template>
   <div class="App">
+    <VpOverlay class="overlay" :show="isMobileSidebarOpen" @click="toggleMobileSidebar(false)" />
     <VpNav />
+    <VpSubNav v-if="hasSidebar" :is-sidebar-open="isMobileSidebarOpen" @open-menu="toggleMobileSidebar(true)" />
     <VpSidebar :open="isMobileSidebarOpen" @close="toggleMobileSidebar(false)" />
     <VpContent :is-sidebar-open="isMobileSidebarOpen">
       <template #content-top>
@@ -22,9 +24,11 @@
   </div>
 </template>
 <script setup lang="ts">
+import VpOverlay from '~/components/vp-overlay.vue'
 import VpNav from './vp-nav.vue'
 import VpSidebar from '~/components/vp-sidebar.vue'
-import VpContent from "~/components/vp-content.vue";
+import VpContent from '~/components/vp-content.vue'
+import VpSubNav from '~/components/vp-subnav.vue'
 import { isClient, useEventListener, useToggle } from '@vueuse/core'
 import { useSidebar } from '~/composable/sidebar'
 import { useToggleWidgets } from '~/composable/toggle-wedgets'

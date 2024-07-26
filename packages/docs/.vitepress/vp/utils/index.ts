@@ -1,35 +1,22 @@
-export const ensureStartingSlash = (path: string) => {
-  return /^\//.test(path) ? path : `/${path}`;
-}
-
-export const removeExtension = (path: string) => {
-  return path.replace(/(index)?(\.(md|html))?$/, '') || '/';
-}
-
-import type { Route } from 'vitepress'
-export const hashRE = /#.*$/;
-export const extRE = /(index)?\.(md|html)$/;
-export function normalize(path) {
-  return decodeURI(path).replace(hashRE, '').replace(extRE, '');
-}
-export function isActive(route, path) {
-  if (path === undefined) {
-    return false;
-  }
-  const routePath = normalize(`/${route.data.relativePath}`);
-  const pagePath = normalize(path);
-  return routePath === pagePath;
-}
-
-export const isActiveLink = (
-  route: Route,
-  pathPattern: string,
-  match?: boolean
-) => {
-  if (!match) return isActive(route, pathPattern)
-  const regex = new RegExp(pathPattern)
-
-  return regex.test(normalize(`/${route.data.relativePath}`))
-}
-
+export * from './vitepress'
+export * from './dom'
 export const isArray = Array.isArray
+
+export const throttleAndDebounce = (fn: () => any, delay: number) => {
+  let timeout: ReturnType<typeof setTimeout>
+  let called = false
+  return () => {
+    if (timeout) {
+      clearTimeout(timeout)
+    }
+    if (!called) {
+      fn()
+      called = true
+      setTimeout(() => {
+        called = false
+      }, delay)
+    } else {
+      timeout = setTimeout(fn, delay)
+    }
+  }
+}

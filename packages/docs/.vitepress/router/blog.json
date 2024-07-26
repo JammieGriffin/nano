@@ -1,0 +1,15 @@
+{
+  "blog": {
+    "text": "测试",
+    "children": [
+      {
+        "text": "Affix",
+        "link": "/vitepress/2024-07-18"
+      },
+      {
+        "text": "Alert",
+        "link": "/vitepress/alert"
+      }
+    ]
+  }
+}

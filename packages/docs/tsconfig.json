@@ -17,7 +17,7 @@
     "paths": {
       "~/*": ["./.vitepress/vp/*"]
     },
-    "types": ["./typings"],
+    "typeRoots": ["./typings"],
     "jsx": "preserve"
   },
   "include": ["**/*", ".vitepress/**/*"],

@@ -10,7 +10,6 @@ import { computed } from 'vue'
 
 const { theme } = useData()
 const navs = computed(() => {
-  console.log(navs)
   return theme.value.nav
 })
 </script>

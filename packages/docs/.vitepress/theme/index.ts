@@ -1,17 +1,22 @@
 // https://vitepress.dev/guide/custom-theme
-import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
 
 import "virtual:uno.css"
 
-import VPApp from "../vp";
+import VPApp, { globals } from "../vp";
+// @ts-ignore
+import VpNotFound from "~/components/vp-not-found.vue";
 
 export default {
   extends: DefaultTheme,
   Layout: VPApp,
-  enhanceApp({ app, router, siteData }) {
+  NotFound: VpNotFound,
+  enhanceApp({ app }) {
     // ...
+    globals.forEach(([name, Comp]) => {
+      app.component(name, Comp)
+    })
   }
 } satisfies Theme

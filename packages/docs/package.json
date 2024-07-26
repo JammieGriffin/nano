@@ -17,6 +17,12 @@
     "@iconify/json": "^2.2.227",
     "@types/markdown-it": "^14.1.1",
     "@types/node": "^20.14.10",
+    "@types/prismjs": "^1.26.4",
+    "chalk": "^5.3.0",
+    "consola": "^3.2.3",
+    "escape-html": "^1.0.3",
+    "fast-glob": "^3.3.2",
+    "markdown-it-container": "^4.0.0",
     "prismjs": "^1.29.0",
     "sass": "^1.77.8",
     "unocss": "^0.61.3",
@@ -29,6 +35,7 @@
     "@vueuse/core": "^10.11.0",
     "element-plus": "^2.7.7",
     "markdown-it": "^14.1.0",
+    "vite-plugin-prismjs": "^0.0.11",
     "vue": "^3.4.31"
   }
 }

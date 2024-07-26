@@ -19,9 +19,8 @@ const isExternal = computed(() => props.href && /^[a-z]+:/i.test(props.href))
     :rel="isExternal ? 'noopener noreferrer' : undefined"
   >
     <slot />
-    <ElIcon v-if="isExternal && !noIcon">
-      <i-ri-external-link-line class="link-icon" />
-    </ElIcon>
+
+    <i v-if="isExternal && !noIcon" class="i-ri:external-link-line link-icon ml-1" />
   </component>
 </template>
 

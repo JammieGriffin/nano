@@ -40,6 +40,9 @@ export default defineConfig(() => {
         languages: ['javascript','json','html','markup','typescript','markdown'],
         theme: 'funky'
       })
-    ]
+    ],
+    ssr: {
+      noExternal: ['element-plus']
+    }
   }
 })

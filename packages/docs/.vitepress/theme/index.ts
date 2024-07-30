@@ -6,7 +6,6 @@ import './style.css'
 import "virtual:uno.css"
 
 import VPApp, { globals } from "../vp";
-
 export default {
   extends: DefaultTheme,
   Layout: VPApp,

@@ -63,6 +63,13 @@ export const mdPlugin = (md: MarkdownIt) => {
       }
     },
   } as ContainerOpts)
-
+  md.use((md) => {
+    md.renderer.rules.fence = (tokens,idx,options,env,self) => {
+      const token = tokens[idx]
+      const lang = token.info ? token.info.trim() : ''
+      const code = token.content
+      return `<source-code source="${encodeURIComponent(highlight(code,lang))}" lang="${lang}" />`
+    }
+  })
   md.use(ApiTableContainer)
 }

@@ -7,6 +7,10 @@ function getBlogSidebar() {
   return Object.entries(blogRouteConfig).map(([prefix, item]) => mapPrefix(item, prefix))
 }
 
+function getComponentSidebar() {
+  return Object.entries(componentRouteConfig).map(([prefix, item]) => mapPrefix(item, prefix))
+}
+
 // function getComponentsSideBar() {
 //   return Object.fromEntries(
 //     Object.entries(componentLocale).map(([lang, val]) => [
@@ -21,7 +25,7 @@ function getBlogSidebar() {
 const getSidebars = () => {
   return {
     '/blog/': getBlogSidebar(),
-    // '/component/': getComponentsSideBar(),
+    '/component/': getComponentSidebar(),
   }
 }
 

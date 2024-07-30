@@ -1,7 +1,15 @@
 {
   "blog": {
-    "text": "测试",
+    "text": "Tag",
     "children": [
+      {
+        "text": "All",
+        "link": "/list"
+      },
+      {
+        "text": "Vitepress",
+        "link": "/list?tag=vitepress"
+      },
       {
         "text": "Affix",
         "link": "/vitepress/2024-07-18"

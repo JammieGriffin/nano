@@ -11,14 +11,14 @@ const { hasLinks, prev, next } = usePageNav()
     <div class="container">
       <div class="prev">
         <a v-if="prev" class="link" :href="withBase(prev.link)">
-          <i class="i-ep:arrow-left mr-1" />
+          <i class="i-ep:arrow-left mr-1 text-[12px] text-[#303133]" />
           <span class="text">{{ prev.text }}</span>
         </a>
       </div>
       <div class="next">
         <a v-if="next" class="link" :href="withBase(next.link)">
           <span class="text">{{ next.text }}</span>
-          <i class="i-ep:arrow-right mr-1" />
+          <i class="i-ep:arrow-right ml-1 text-[12px] text-[#303133]" />
         </a>
       </div>
     </div>

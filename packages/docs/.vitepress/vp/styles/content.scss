@@ -27,6 +27,9 @@
     display: inline-flex;
     align-items: center;
     &.vp-link {
+      &:before {
+        content: "#"
+      }
       white-space: nowrap;
     }
     .link-icon {

@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+import { computed, ComputedRef } from 'vue'
 import { useData } from 'vitepress'
 
 import type { PageData } from 'vitepress'
@@ -12,7 +12,7 @@ type Headers = EnhanceArrayElement<
   }
 >
 
-export const useToc = () => {
+export const useToc = (): ComputedRef<PageData['headers']> => {
   const { page } = useData()
   return computed(() => {
     return resolveHeaders(page.value.headers)

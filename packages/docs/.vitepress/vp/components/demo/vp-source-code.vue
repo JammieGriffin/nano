@@ -7,6 +7,11 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  lang: {
+    type: String,
+    required: false,
+    default: 'vue'
+  }
 })
 
 const decoded = computed(() => {
@@ -16,7 +21,7 @@ const decoded = computed(() => {
 
 <template>
   <div class="example-source-wrapper">
-    <div class="example-source language-vue !bg-black !text-white" v-html="decoded" />
+    <div class="example-source !bg-black !text-white" :class="`language-${lang}`" v-html="decoded" />
   </div>
 </template>
 

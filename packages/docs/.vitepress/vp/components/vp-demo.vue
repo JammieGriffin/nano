@@ -2,7 +2,6 @@
 import { computed, getCurrentInstance, onMounted, ref } from 'vue'
 import { useClipboard, useToggle } from '@vueuse/core'
 
-
 import Example from './demo/vp-example.vue'
 import SourceCode from './demo/vp-source-code.vue'
 
@@ -26,19 +25,13 @@ const [sourceVisible, toggleSourceVisible] = useToggle()
 const sourceCodeRef = ref<HTMLButtonElement>()
 const formatPathDemos = computed(() => {
   const demos = {}
-
   Object.keys(props.demos).forEach((key) => {
-    demos[key.replace('../../demo/', '').replace('.vue', '')] =
-      props.demos[key].default
+    demos[key.replace(/^((\.\.\/)+)(demo\/)(.*)?$/i, '$4').replace('.vue', '')] = props.demos[key].default
   })
-
   return demos
 })
 
-const decodedDescription = computed(() =>
-  decodeURIComponent(props.description!)
-)
-
+const decodedDescription = computed(() => decodeURIComponent(props.description!))
 
 const onSourceVisibleKeydown = (e: KeyboardEvent) => {
   if (['Enter', 'Space'].includes(e.code)) {
@@ -60,7 +53,6 @@ const copyCode = async () => {
     $message.error(e.message)
   }
 }
-
 </script>
 
 <template>
@@ -74,12 +66,7 @@ const copyCode = async () => {
       <ElDivider class="!m-0" />
 
       <div class="op-btns border-b">
-        <ElTooltip
-          content="Copy code"
-          :show-arrow="false"
-          :trigger="['hover', 'focus']"
-          :trigger-keys="[]"
-        >
+        <ElTooltip content="Copy code" :show-arrow="false" :trigger="['hover', 'focus']" :trigger-keys="[]">
           <ElIcon
             :size="16"
             aria-label="Copy code"
@@ -93,17 +80,10 @@ const copyCode = async () => {
             <i class="i-ri:file-copy-line" />
           </ElIcon>
         </ElTooltip>
-        <ElTooltip
-          content="View source"
-          :show-arrow="false"
-          :trigger="['hover', 'focus']"
-          :trigger-keys="[]"
-        >
+        <ElTooltip content="View source" :show-arrow="false" :trigger="['hover', 'focus']" :trigger-keys="[]">
           <button
             ref="sourceCodeRef"
-            :aria-label="
-              sourceVisible ? 'Hide source' : 'View source'
-            "
+            :aria-label="sourceVisible ? 'Hide source' : 'View source'"
             class="reset-btn el-icon op-btn"
             @click="toggleSourceVisible()"
           >
@@ -188,6 +168,7 @@ const copyCode = async () => {
     right: 0;
     bottom: 0;
     z-index: 10;
+
     span {
       font-size: 14px;
       margin-left: 10px;

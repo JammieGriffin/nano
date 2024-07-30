@@ -1,0 +1,11 @@
+{
+  "component": {
+    "text": "组件",
+    "children": [
+      {
+        "text": "Alert",
+        "link": "/alert"
+      }
+    ]
+  }
+}

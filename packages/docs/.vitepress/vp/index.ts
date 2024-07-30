@@ -32,6 +32,10 @@ import VpDemo from './components/vp-demo.vue'
 // @ts-ignore
 import Home from './components/globals/home.vue'
 
+// @ts-ignore
+import VpSourceCode from "~/components/demo/vp-source-code.vue";
+// @ts-ignore
+import VpBlogList from "~/components/globals/vp-blog-list.vue";
 export const globals: [string, Component][] = [
   ['Home', Home],
   ['Demo', VpDemo],
@@ -43,4 +47,6 @@ export const globals: [string, Component][] = [
   ['NumberType', ApiNumberType],
   ['RefType', ApiRefType],
   ['ExternalType', ApiExternalType],
+  ['SourceCode',VpSourceCode],
+  ['BlogList', VpBlogList]
 ]

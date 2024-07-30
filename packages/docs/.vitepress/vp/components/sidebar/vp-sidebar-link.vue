@@ -16,10 +16,10 @@
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vitepress'
-import { isActive } from '~/utils'
+import { isActive, normalize } from '~/utils'
 
 import type { Link } from '~/types'
-import VersionTag from "~/components/tags/version-tag.vue";
+import VersionTag from '~/components/tags/version-tag.vue'
 
 const props = defineProps<{
   item: Link
@@ -31,7 +31,21 @@ const sidebarItem = ref<HTMLElement>()
 
 const route = useRoute()
 
-const activeLink = computed<boolean>(() => isActive(route, props.item.link))
+const activeLink = computed<boolean>(() => {
+  const isBlogRoute = normalize(route.data.relativePath).startsWith('blog')
+
+  if (!isBlogRoute) {
+    return isActive(route, props.item.link)
+  }
+  const queryString = props.item.link.split('?')[1]
+  const search = window.location.search
+  if (!queryString && !search) {
+    return normalize(route.path) === props.item.link
+  }
+  const params = new URLSearchParams(queryString)
+  const tag = params.get('tag')
+  return search.includes(`tag=${tag}`)
+})
 
 watch([activeLink, sidebarItem], ([active, el]) => {
   if (active && el) {

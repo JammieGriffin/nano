@@ -1,1 +1,1 @@
-declare module 'vitepress/dist/client/theme-default/support/utils.js'
+declare module "*.css"

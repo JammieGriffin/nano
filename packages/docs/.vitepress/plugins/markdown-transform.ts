@@ -7,6 +7,7 @@ import glob from 'fast-glob'
 // import footerLocale from '../i18n/component/footer.json'
 
 import type { Plugin } from 'vite'
+import { demoPath, docRoot } from "../utils/path";
 
 type Append = Record<'headers' | 'footers' | 'scriptSetups', string[]>
 
@@ -31,15 +32,18 @@ export function MarkdownTransform(): Plugin {
     async transform(code, id) {
       if (!id.endsWith('.md')) return
       const componentId = path.basename(id, '.md')
+      const relativeDemoPath = path.relative(path.dirname(id),docRoot).replace("\\","/")
+      console.log(relativeDemoPath)
       const append: Append = {
         headers: [],
         footers: [],
         scriptSetups: [
-          `const demos = import.meta.glob('../../demo/${componentId}/*.vue',{eager: true})`,
+          `
+          const demos = import.meta.glob('${relativeDemoPath}/demo/${componentId}/*.vue',{eager: true})
+          `,
         ],
       }
       code = transformVpScriptSetup(code, append)
-
       if (compPaths.some((compPath) => id.startsWith(compPath))) {
         code = transformComponentMarkdown(id, componentId, code, append)
       }

@@ -1,19 +1,16 @@
 {
-  "name": "nano",
+  "name": "@nano/components",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "peerDependencies": {
+    "vue": "^3.4.0",
+    "element-plus": "^2.7.0"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "prettier": "^3.3.3",
-    "vue": "^3.4.31"
-  },
-  "dependencies": {
-    "@nano/components": "workspace:*"
-  }
+  "license": "ISC"
 }

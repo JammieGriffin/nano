@@ -5,6 +5,10 @@
       {
         "text": "Alert",
         "link": "/alert"
+      },
+      {
+        "text": "VirtualScroll 虚拟滚动",
+        "link": "/virtual-scroll"
       }
     ]
   }

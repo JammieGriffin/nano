@@ -15,6 +15,7 @@ declare module 'vue' {
     ElAnchorLink: typeof import('element-plus/es')['ElAnchorLink']
     ElBadge: typeof import('element-plus/es')['ElBadge']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCard: typeof import('element-plus/es')['ElCard']
     ElCollapseTransition: typeof import('element-plus/es')['ElCollapseTransition']
     ElDivider: typeof import('element-plus/es')['ElDivider']
     ElEmpty: typeof import('element-plus/es')['ElEmpty']

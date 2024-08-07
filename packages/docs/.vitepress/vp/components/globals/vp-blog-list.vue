@@ -7,7 +7,7 @@
             <h2 class="m-0">{{ page.frontmatter.title }}</h2>
             <VersionTag v-for="(tag, idx) in page.frontmatter.tags" :key="idx" :version="tag" />
           </div>
-          <span class="text-sm text-[#606266]">{{ page.frontmatter.date }}</span>
+          <span class="text-sm text-[#606266]">{{ dayjs(page.frontmatter.date).format('YYYY-MM-DD') }}</span>
         </a>
       </li>
     </ul>
@@ -19,6 +19,7 @@ import VpPagePagination from '../doc-content/vp-page-pagination.vue'
 import { data as blogData } from '../../../meta/blog.data'
 import { computed, ref, Ref } from 'vue'
 import { useBrowserLocation } from '@vueuse/core'
+import { dayjs } from "element-plus";
 
 const PAGE_SIZE = 20
 const location = useBrowserLocation()

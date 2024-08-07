@@ -11,12 +11,8 @@
         "link": "/list?tag=vitepress"
       },
       {
-        "text": "Affix",
-        "link": "/vitepress/2024-07-18"
-      },
-      {
-        "text": "Alert",
-        "link": "/vitepress/alert"
+        "text": "LeetCode",
+        "link": "/list?tag=leetcode"
       }
     ]
   }

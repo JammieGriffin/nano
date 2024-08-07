@@ -3,10 +3,6 @@
     "text": "组件",
     "children": [
       {
-        "text": "Alert",
-        "link": "/alert"
-      },
-      {
         "text": "VirtualScroll 虚拟滚动",
         "link": "/virtual-scroll"
       }

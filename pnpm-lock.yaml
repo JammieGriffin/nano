@@ -11,6 +11,9 @@ importers:
       '@nano/components':
         specifier: workspace:*
         version: link:packages/components
+      '@nano/composables':
+        specifier: workspace:*
+        version: link:packages/composables
     devDependencies:
       prettier:
         specifier: ^3.3.3
@@ -25,7 +28,19 @@ importers:
         specifier: ^2.7.0
         version: 2.7.7(vue@3.4.31)
       vue:
-        specifier: ^3.4.0
+        specifier: ^3.2.0
+        version: 3.4.31
+
+  packages/composables:
+    dependencies:
+      '@vueuse/core':
+        specifier: ^10.0.0
+        version: 10.11.0(vue@3.4.31)
+      element-plus:
+        specifier: ^2.7.0
+        version: 2.7.7(vue@3.4.31)
+      vue:
+        specifier: ^3.2.0
         version: 3.4.31
 
   packages/docs:

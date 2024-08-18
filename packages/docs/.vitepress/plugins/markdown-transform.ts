@@ -33,7 +33,6 @@ export function MarkdownTransform(): Plugin {
       if (!id.endsWith('.md')) return
       const componentId = path.basename(id, '.md')
       const relativeDemoPath = path.relative(path.dirname(id),docRoot).replace("\\","/")
-      console.log(relativeDemoPath)
       const append: Append = {
         headers: [],
         footers: [],

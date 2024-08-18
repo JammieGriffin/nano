@@ -11,14 +11,9 @@ function getComponentSidebar() {
   return Object.entries(componentRouteConfig).map(([prefix, item]) => mapPrefix(item, prefix))
 }
 
-// function getComponentsSideBar() {
-//   return Object.fromEntries(
-//     Object.entries(componentLocale).map(([lang, val]) => [
-//       lang,
-//       Object.values(val).map((item) => mapPrefix(item, lang, '/component')),
-//     ])
-//   )
-// }
+function getComposableSidebar() {
+  return Object.entries(composableRouteConfig).map(([prefix, item]) => mapPrefix(item, prefix))
+}
 
 // return sidebar with language configs.
 // this might create duplicated data but the overhead is ignorable
@@ -26,6 +21,7 @@ const getSidebars = () => {
   return {
     '/blog/': getBlogSidebar(),
     '/component/': getComponentSidebar(),
+    '/composable': getComposableSidebar()
   }
 }
 

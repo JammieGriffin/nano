@@ -10,8 +10,8 @@
     "activeMatch": "/component/"
   },
   {
-    "text": "组合式函数",
-    "link": "/composable/list",
+    "text": "工具函数&组合式函数",
+    "link": "/composable/table-range-select",
     "activeMatch": "/composable/"
   }
 ]

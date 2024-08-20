@@ -33,8 +33,8 @@ const sidebarItem = ref<HTMLElement>()
 const route = useRoute()
 
 const activeLink = computed<boolean>(() => {
-  if (!props.activeLink) return normalize(route.path) === props.item.link
-  return props.activeLink === props.item.link
+  if (!props.activeLink) return normalize(route.path) === withBase(props.item.link)
+  return props.activeLink === withBase(props.item.link)
 
 
   // const isBlogRoute = normalize(route.data.relativePath).startsWith('blog')

@@ -1,8 +1,13 @@
-import {defineConfig,presetUno,presetIcons} from 'unocss'
+import { defineConfig, presetUno, presetIcons } from 'unocss'
+
 export default defineConfig({
   presets: [presetUno(), presetIcons()],
-  include: [`${__dirname}/**/*`],
-  exclude: [`${__dirname}/node_modules/**/*`],
+  content: {
+    pipeline: {
+      include: [`${__dirname}/**/*`],
+      exclude: [`${__dirname}/node_modules/**/*`],
+    },
+  },
   theme: {
     breakpoints: {
       sm: '640px',

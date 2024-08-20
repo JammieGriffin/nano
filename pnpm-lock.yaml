@@ -64,6 +64,12 @@ importers:
       '@iconify/json':
         specifier: ^2.2.227
         version: 2.2.227
+      '@nano/components':
+        specifier: workspace:*
+        version: link:../components
+      '@nano/composables':
+        specifier: workspace:*
+        version: link:../composables
       '@types/markdown-it':
         specifier: ^14.1.1
         version: 14.1.1

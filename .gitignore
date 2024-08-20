@@ -5,3 +5,4 @@ node_modules
 
 packages/docs/.vitepress/cache
 packages/docs/.vitepress/dist
+packages/docs/.vitepress/.temp

@@ -3,7 +3,7 @@
     <ul class="m-0 p-0">
       <li v-for="page in blogList" :key="page.url" class="pt-6 pb-4">
         <a
-          :href="page.url"
+          :href="withBase(page.url)"
           class="text-[#606266] hover:text-[#409eff] w-full flex justify-between"
         >
           <div
@@ -36,6 +36,7 @@ import { computed, ref, Ref, watch } from 'vue'
 // import { useBrowserLocation } from '@vueuse/core'
 import { dayjs } from 'element-plus'
 import { activeLink } from "~/components/share";
+import { withBase } from "vitepress";
 
 const PAGE_SIZE = 20
 

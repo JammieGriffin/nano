@@ -4,7 +4,7 @@
       'is-menu-link': true,
       active: isActiveLink(route, item.activeMatch || item.link, !!item.activeMatch),
     }"
-    :href="item.link"
+    :href="withBase(item.link)"
     :no-icon="true"
     @click="onNavClick(item)"
   >
@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useRoute } from 'vitepress'
+import { useRoute, withBase } from 'vitepress'
 import { useStorage } from '@vueuse/core'
 import VPLink from '../common/vp-link.vue'
 import { isActiveLink } from '~/utils'

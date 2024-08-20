@@ -30,7 +30,7 @@ import { useSidebar } from '~/composable/sidebar'
 
 import VPSidebarLink from './sidebar/vp-sidebar-link.vue'
 import { Ref, ref } from 'vue'
-import { useRouter } from 'vitepress'
+import { useRouter, withBase } from 'vitepress'
 import { activeLink } from "~/components/share";
 
 defineProps<{ open: boolean }>()
@@ -40,7 +40,7 @@ defineEmits(['close'])
 const { sidebars, hasSidebar } = useSidebar()
 
 const onClickSidebarLink = (data: { link: string; text: string }) => {
-  activeLink.value = data.link
+  activeLink.value = withBase(data.link)
 }
 
 const router = useRouter()

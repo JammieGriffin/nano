@@ -15,6 +15,8 @@
   "license": "ISC",
   "devDependencies": {
     "@iconify/json": "^2.2.227",
+    "@nano/components": "workspace:*",
+    "@nano/composables": "workspace:*",
     "@types/markdown-it": "^14.1.1",
     "@types/node": "^20.14.10",
     "@types/prismjs": "^1.26.4",

@@ -23,6 +23,7 @@ import VersionTag from '~/components/tags/version-tag.vue'
 
 const props = defineProps<{
   item: Link
+  activeLink?: string
 }>()
 
 defineEmits(['close'])
@@ -32,19 +33,26 @@ const sidebarItem = ref<HTMLElement>()
 const route = useRoute()
 
 const activeLink = computed<boolean>(() => {
-  const isBlogRoute = normalize(route.data.relativePath).startsWith('blog')
+  if (!props.activeLink) return normalize(route.path) === props.item.link
+  return props.activeLink === props.item.link
 
-  if (!isBlogRoute) {
-    return isActive(route, props.item.link)
-  }
-  const queryString = props.item.link.split('?')[1]
-  const search = window.location.search
-  if (!queryString && !search) {
-    return normalize(route.path) === props.item.link
-  }
-  const params = new URLSearchParams(queryString)
-  const tag = params.get('tag')
-  return search.includes(`tag=${tag}`)
+
+  // const isBlogRoute = normalize(route.data.relativePath).startsWith('blog')
+  //
+  // if (!isBlogRoute) {
+  //   return isActive(route, props.item.link)
+  // }
+  // const queryString = props.item.link.split('?')[1]
+  // let search = ''
+  // if ( isClient ) {
+  //   search = window.location.search
+  // }
+  // if (!queryString && !search) {
+  //   return normalize(route.path) === props.item.link
+  // }
+  // const params = new URLSearchParams(queryString)
+  // const tag = params.get('tag')
+  // return search.includes(`tag=${tag}`)
 })
 
 watch([activeLink, sidebarItem], ([active, el]) => {

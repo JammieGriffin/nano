@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { isClient } from '@vueuse/core'
+import { withBase } from "vitepress";
 
 const goHome = () => {
   if (!isClient) return
-  window.location.href = `/`
+  window.location.href = withBase('/')
 }
 </script>
 

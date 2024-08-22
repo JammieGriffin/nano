@@ -8,7 +8,7 @@
         <ul class="m-0 p-0">
           <li v-for="page in blogList" :key="page.url" class="pt-6 pb-4">
             <a
-              :href="page.url"
+              :href="withBase(page.url)"
               class="text-[#606266] hover:text-[#409eff] w-full flex justify-between"
             >
               <div
@@ -40,7 +40,7 @@
         <ul class="m-0 p-0">
           <li v-for="page in componentList" :key="page.url" class="pt-6 pb-4">
             <a
-              :href="page.url"
+              :href="withBase(page.url)"
               class="text-[#606266] hover:text-[#409eff] w-full flex justify-between"
             >
               <div
@@ -72,7 +72,7 @@
         <ul class="m-0 p-0">
           <li v-for="page in composableList" :key="page.url" class="pt-6 pb-4">
             <a
-              :href="page.url"
+              :href="withBase(page.url)"
               class="text-[#606266] hover:text-[#409eff] w-full flex justify-between"
             >
               <div
@@ -107,6 +107,7 @@ import { data as blogData } from '../../../meta/blog.data'
 import { data as componentData } from '../../../meta/component.data'
 import { data as composableData } from '../../../meta/composable.data'
 import { dayjs } from "element-plus";
+import { withBase } from "vitepress";
 
 const blogList = blogData
   .sort((a, b) => {

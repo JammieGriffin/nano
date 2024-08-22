@@ -1,7 +1,7 @@
 <template>
   <header :class="{ navbar: true, 'has-sidebar': hasSidebar }">
     <VpNavbar :smaller-than-md="isSmallerThanMd" @toggle="toggleMdBreakpointState" />
-    <VpMobileNav :smaller-than-md="isSmallerThanMd" class="full-screen" />
+    <VpMobileNav :smaller-than-md="isSmallerThanMd" class="full-screen" @close="toggleMdBreakpointState(false)" />
   </header>
 </template>
 <script setup lang="ts">

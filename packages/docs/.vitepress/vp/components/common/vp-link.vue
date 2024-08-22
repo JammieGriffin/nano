@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { withBase } from "vitepress";
 
 const props = defineProps<{
   href?: string
@@ -14,7 +15,7 @@ const isExternal = computed(() => props.href && /^[a-z]+:/i.test(props.href))
     :is="href ? 'a' : 'span'"
     class="link-item"
     :class="{ link: href }"
-    :href="href"
+    :href="withBase(href ?? '')"
     :target="isExternal ? '_blank' : undefined"
     :rel="isExternal ? 'noopener noreferrer' : undefined"
   >

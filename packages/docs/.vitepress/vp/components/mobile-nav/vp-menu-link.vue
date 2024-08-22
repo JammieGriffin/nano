@@ -2,6 +2,7 @@
 import VPLink from '../common/vp-link.vue'
 
 import type { Link } from '../../types'
+import { withBase } from "vitepress";
 
 defineProps<{
   item: Link
@@ -13,7 +14,7 @@ defineProps<{
     :class="{
       'is-menu-link': true,
     }"
-    :href="item.link"
+    :href="withBase(item.link)"
     :no-icon="true"
   >
     {{ item.text }}

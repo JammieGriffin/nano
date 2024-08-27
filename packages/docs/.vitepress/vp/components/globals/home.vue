@@ -9,13 +9,9 @@
           <li v-for="page in blogList" :key="page.url" class="pt-6 pb-4">
             <a
               :href="withBase(page.url)"
-              class="text-[#606266] hover:text-[#409eff] w-full flex justify-between"
+              class="text-[#606266] hover:text-[#409eff] w-full flex flex-wrap gap-2 justify-between"
             >
-              <div
-                :class="{
-                  'flex items-center': page.frontmatter.tags?.length > 0,
-                }"
-              >
+              <div class="flex items-center">
                 <p class="m-0">{{ page.frontmatter.title }}</p>
                 <VersionTag
                   v-for="(tag, idx) in page.frontmatter.tags"
@@ -23,9 +19,11 @@
                   :version="tag"
                 />
               </div>
-              <span class="text-sm text-[#606266]">{{
+              <div class="grow flex justify-end items-center">
+                <span class="text-sm text-[#606266]">{{
                   dayjs(page.frontmatter.date).format('YYYY-MM-DD')
                 }}</span>
+              </div>
             </a>
           </li>
         </ul>
@@ -41,13 +39,9 @@
           <li v-for="page in componentList" :key="page.url" class="pt-6 pb-4">
             <a
               :href="withBase(page.url)"
-              class="text-[#606266] hover:text-[#409eff] w-full flex justify-between"
+              class="text-[#606266] hover:text-[#409eff] w-full flex flex-wrap justify-between"
             >
-              <div
-                :class="{
-                  'flex items-center': page.frontmatter.tags?.length > 0,
-                }"
-              >
+              <div class="flex items-center">
                 <p class="m-0">{{ page.frontmatter.title }}</p>
                 <VersionTag
                   v-for="(tag, idx) in page.frontmatter.tags"
@@ -55,31 +49,31 @@
                   :version="tag"
                 />
               </div>
-              <span class="text-sm text-[#606266]">{{
+              <div class="grow flex justify-end items-center">
+                <span class="text-sm text-[#606266]">{{
                   dayjs(page.frontmatter.date).format('YYYY-MM-DD')
-              }}</span>
+                }}</span>
+              </div>
             </a>
           </li>
         </ul>
         <template #footer>
           <div class="flex justify-center">
-            <VpLink :href="withBase('/component/virtual-scroll')">查看更多</VpLink>
+            <VpLink :href="withBase('/component/virtual-scroll')">
+              查看更多
+            </VpLink>
           </div>
         </template>
       </el-card>
       <el-card class="w-full">
-        <h3 class="m-0">组合式函数</h3>
+        <h3 class="m-0">工具函数&组合式函数</h3>
         <ul class="m-0 p-0">
           <li v-for="page in composableList" :key="page.url" class="pt-6 pb-4">
             <a
               :href="withBase(page.url)"
-              class="text-[#606266] hover:text-[#409eff] w-full flex justify-between"
+              class="text-[#606266] hover:text-[#409eff] w-full flex flex-wrap justify-between"
             >
-              <div
-                :class="{
-                  'flex items-center': page.frontmatter.tags?.length > 0,
-                }"
-              >
+              <div class="flex items-center">
                 <p class="m-0">{{ page.frontmatter.title }}</p>
                 <VersionTag
                   v-for="(tag, idx) in page.frontmatter.tags"
@@ -87,15 +81,19 @@
                   :version="tag"
                 />
               </div>
-              <span class="text-sm text-[#606266]">{{
+              <div class="grow flex justify-end items-center">
+                <span class="text-sm text-[#606266]">{{
                   dayjs(page.frontmatter.date).format('YYYY-MM-DD')
-              }}</span>
+                }}</span>
+              </div>
             </a>
           </li>
         </ul>
         <template #footer>
           <div class="flex justify-center">
-            <VpLink :href="withBase('/composable/table-range-select')">查看更多</VpLink>
+            <VpLink :href="withBase('/composable/table-range-select')">
+              查看更多
+            </VpLink>
           </div>
         </template>
       </el-card>
@@ -106,8 +104,8 @@
 import { data as blogData } from '../../../meta/blog.data'
 import { data as componentData } from '../../../meta/component.data'
 import { data as composableData } from '../../../meta/composable.data'
-import { dayjs } from "element-plus";
-import { withBase } from "vitepress";
+import { dayjs } from 'element-plus'
+import { withBase } from 'vitepress'
 
 const blogList = blogData
   .sort((a, b) => {
@@ -126,7 +124,6 @@ const composableList = composableData
     return +new Date(b.frontmatter.date) - +new Date(a.frontmatter.date)
   })
   .slice(0, 5)
-
 </script>
 <style scoped>
 h3 {

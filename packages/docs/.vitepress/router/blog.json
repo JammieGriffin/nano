@@ -13,6 +13,10 @@
       {
         "text": "LeetCode",
         "link": "/list?tag=leetcode"
+      },
+      {
+        "text": "TypeChallenges",
+        "link": "/list?tag=type-challenges"
       }
     ]
   }

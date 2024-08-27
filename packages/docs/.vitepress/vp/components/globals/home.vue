@@ -31,7 +31,7 @@
         </ul>
         <template #footer>
           <div class="flex justify-center">
-            <VpLink href="/blog/list">查看更多</VpLink>
+            <VpLink :href="withBase('/blog/list')">查看更多</VpLink>
           </div>
         </template>
       </el-card>
@@ -63,7 +63,7 @@
         </ul>
         <template #footer>
           <div class="flex justify-center">
-            <VpLink href="/component/virtual-scroll">查看更多</VpLink>
+            <VpLink :href="withBase('/component/virtual-scroll')">查看更多</VpLink>
           </div>
         </template>
       </el-card>
@@ -95,7 +95,7 @@
         </ul>
         <template #footer>
           <div class="flex justify-center">
-            <VpLink href="/blog/list">查看更多</VpLink>
+            <VpLink :href="withBase('/composable/table-range-select')">查看更多</VpLink>
           </div>
         </template>
       </el-card>
